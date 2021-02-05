@@ -185,7 +185,6 @@ function moveSnake() {
           const goingRight = dx === 25;
           const goingLeft = dx === -25;
           
-          console.log(snake);
           ctx.fillStyle = "rgb(24, 186, 19)";
           startx += dx;
           starty += dy;
