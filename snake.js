@@ -64,6 +64,7 @@ function timer() {
      if (newGame == true) {
           if (active == true) {
                active = false;
+               moves =0;
                timercycle();
 
           }
