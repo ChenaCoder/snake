@@ -146,7 +146,9 @@ function checkKey(e) {
 
 
      e = e || window.event;
-
+     if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+          e.preventDefault();
+      }
      if (e.keyCode == "38" && !goingDown) {
           // up arrow
           dx = 0;
