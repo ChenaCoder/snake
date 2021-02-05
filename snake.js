@@ -46,6 +46,11 @@ function redMouse() {
 
           ctx.fillRect(randomx, randomy, 19, 19);
      }
+      for(let h =0;h<snake.length;h++){
+         if (snake[h].x == randomx && snake[h].y == randomy){
+               redMouse();
+         }
+     }
 }
 // var start = document.getElementById('start')
 var timeTitle = document.getElementById("time");
