@@ -16,6 +16,7 @@ var hasEatenFood = false;
 var snake = [];
 
 function drawBoard() {
+     snake[0]= { x: 228, y: 228 };
      ctx.strokeStyle = "gray";
      ctx.lineWidth = 1;
      for (var x = 0; x < bw; x += 25) {
@@ -46,10 +47,10 @@ function redMouse() {
 
           ctx.fillRect(randomx, randomy, 19, 19);
      }
-      for(let h =0;h<snake.length;h++){
-         if (snake[h].x == randomx && snake[h].y == randomy){
+     for(let h =0;h<snake.length;h++){
+          if (snake[h].x == randomx && snake[h].y == randomy){
                redMouse();
-         }
+          }
      }
 }
 // var start = document.getElementById('start')
@@ -63,15 +64,6 @@ function timer() {
      if (newGame == true) {
           if (active == true) {
                active = false;
-               points = 0;
-               startx = 228;
-               starty = 228;
-               moves = 0;
-               dx = 0
-               dy =0;
-               pointThing= null;
-               snake.splice(0,snake.length);
-               snake[0]= { x: 228, y: 228 };
                timercycle();
 
           }
@@ -94,6 +86,11 @@ function reset() {
      moves = 0;
      newGame = true;
      w=0;
+     dx = 0
+     dy =0;
+     pointThing= null;
+     snake.splice(0,snake.length);
+     
      clearCanvas();
 
 }
@@ -137,7 +134,7 @@ function timercycle() {
 
 document.addEventListener("keydown", checkKey);
 function checkKey(e) {
-
+     console.log(e.keyCode);
      const goingUp = dy === -25;
      const goingDown = dy === 25;
      const goingRight = dx === 25;
@@ -149,6 +146,7 @@ function checkKey(e) {
      if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
           e.preventDefault();
       }
+
      if (e.keyCode == "38" && !goingDown) {
           // up arrow
           dx = 0;
@@ -192,6 +190,7 @@ function moveSnake() {
           const goingRight = dx === 25;
           const goingLeft = dx === -25;
           
+          console.log(snake);
           ctx.fillStyle = "rgb(24, 186, 19)";
           startx += dx;
           starty += dy;
