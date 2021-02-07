@@ -254,7 +254,7 @@ function moveSnake() {
 
           }
           for(let h =0;h<snake.length-1;h++){
-               if (snake[0].x == snake[h+1].x && snake[0].y == snake[h+1].y && points>2){
+               if (snake[0].x == snake[h+1].x && snake[0].y == snake[h+1].y && points>0){
                     gameover()
                }
           }
