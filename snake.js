@@ -135,7 +135,7 @@ function timercycle() {
 
 document.addEventListener("keydown", checkKey);
 function checkKey(e) {
-     console.log(e.keyCode);
+     
      const goingUp = dy === -25;
      const goingDown = dy === 25;
      const goingRight = dx === 25;
@@ -147,8 +147,26 @@ function checkKey(e) {
      if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
           e.preventDefault();
       }
-
-     if (e.keyCode == "38" && !goingDown) {
+     if (moves == 0){
+           if (e.keyCode == "38" ) {
+          // up arrow
+          dx = 0;
+          dy = -25;
+     } else if (e.keyCode == "40" ) {
+          // down arrow
+          dx = 0;
+          dy = 25;
+     } else if (e.keyCode == "37") {
+          // left arrow
+          dx = -25;
+          dy = 0;
+     } else if (e.keyCode == "39" ) {
+          // right arrow
+          dx = 25;
+          dy = 0;
+     }
+     }
+     if (e.keyCode == "38" && !goingDown ) {
           // up arrow
           dx = 0;
           dy = -25;
@@ -191,7 +209,7 @@ function moveSnake() {
           const goingRight = dx === 25;
           const goingLeft = dx === -25;
           
-          console.log(snake);
+          
           ctx.fillStyle = "rgb(24, 186, 19)";
           startx += dx;
           starty += dy;
