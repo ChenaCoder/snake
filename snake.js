@@ -248,7 +248,7 @@ function moveSnake() {
           if (startx == randomx && starty == randomy) {
                points++;
                document.getElementById("points").innerHTML =
-                    "<b>" + "Value: " + points + "</b>";
+                    "<b>" + "Points: " + points + "</b>";
                hasEatenFood = true
                redMouse();
 
